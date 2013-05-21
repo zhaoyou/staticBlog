@@ -1,0 +1,38 @@
+.goog-inline-block {
+  position: relative;
+  display: -moz-inline-box; /* Ignored by FF3 and later. */
+  display: inline-block;
+}
+
+/*
+  * Pre-IE7 IE hack.  On IE, "display: inline-block" only gives the element
+  * layout, but doesn't give it inline behavior.  Subsequently setting display
+  * to inline does the trick.
+  */
+* html .goog-inline-block {
+  display: inline;
+  zoom: 1;
+}
+
+/*
+  * IE7-only hack.  On IE, "display: inline-block" only gives the element
+  * layout, but doesn't give it inline behavior.  Subsequently setting display
+  * to inline does the trick.
+  */
+*:first-child+html .goog-inline-block {
+  display: inline;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+body {
+  font-size: 14px;
+  img {
+    border: none;
+  }
+}
